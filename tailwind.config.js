@@ -20,6 +20,24 @@ module.exports = {
           900: '#14532d',
         },
       },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-reverse': 'floatReverse 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        'gradient-shift': 'gradient-shift 15s ease infinite',
+        'slide-up': 'slide-up 0.6s ease-out',
+        'scale-in': 'scale-in 0.5s ease-out',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+        },
+        floatReverse: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(-5deg)' },
+        },
+      },
     },
   },
   plugins: [],
