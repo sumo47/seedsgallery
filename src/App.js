@@ -20,7 +20,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Prevent body scroll when mobile menu is open
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -32,48 +31,61 @@ function App() {
   }, [isMobileMenuOpen]);
 
   const seeds = [
-    { id: 'seed-1', name: 'Sunflower Seeds', price: '$4.99', emoji: '🌻', color: 'from-yellow-200 to-yellow-400' },
-    { id: 'seed-2', name: 'Rose Seeds', price: '$6.99', emoji: '🌹', color: 'from-red-200 to-pink-400' },
-    { id: 'seed-3', name: 'Lavender Seeds', price: '$5.99', emoji: '💜', color: 'from-purple-200 to-purple-400' },
-    { id: 'seed-4', name: 'Tulip Bulbs', price: '$7.99', emoji: '🌷', color: 'from-pink-200 to-rose-400' },
-    { id: 'seed-5', name: 'Marigold Seeds', price: '$3.99', emoji: '🌼', color: 'from-orange-200 to-yellow-400' },
-    { id: 'seed-6', name: 'Daisy Seeds', price: '$4.49', emoji: '🌼', color: 'from-white to-yellow-200' },
-    { id: 'seed-7', name: 'Orchid Seeds', price: '$9.99', emoji: '🌸', color: 'from-pink-200 to-purple-300' },
-    { id: 'seed-8', name: 'Pansy Seeds', price: '$4.99', emoji: '🌺', color: 'from-violet-200 to-purple-400' },
+    { id: 'seed-new-2', name: 'Organic Rose Seeds', price: '₹999', emoji: '🌹', color: 'from-red-200 to-pink-400' },
+    { id: 'seed-new-3', name: 'Amul Butter (Sample)', price: '₹220', emoji: '🧈', color: 'from-yellow-100 to-yellow-300' },
+    { id: 'seed-new-4', name: 'Gladiolus Mix', price: '₹40', emoji: '💐', color: 'from-pink-200 to-purple-400' },
+    { id: 'seed-new-5', name: 'Asiatic Lily Orange', price: '₹80', emoji: '🌺', color: 'from-orange-200 to-red-400' },
+    { id: 'seed-new-6', name: 'Sunflower Seeds', price: '₹499', emoji: '🌻', color: 'from-yellow-200 to-orange-400' },
+    { id: 'seed-new-7', name: 'Pumpkin Seeds Dried', price: '₹899', emoji: '🎃', color: 'from-orange-100 to-orange-300' },
+    { id: 'seed-new-8', name: 'Organic Pumpkin Seeds Raw', price: '₹599', emoji: '🎃', color: 'from-green-100 to-green-300' },
+    { id: 'seed-new-9', name: 'Asiatic Lily Yellow', price: '₹80', emoji: '⚜️', color: 'from-yellow-100 to-yellow-300' },
+    { id: 'seed-new-10', name: 'Asiatic Lily Pink', price: '₹80', emoji: '🌸', color: 'from-pink-200 to-pink-400' },
+    { id: 'seed-new-11', name: 'Asiatic Lily Red', price: '₹80', emoji: '🌺', color: 'from-red-400 to-red-600' },
+    { id: 'seed-new-12', name: 'Hyacinth Yellow', price: '₹120', emoji: '🪻', color: 'from-yellow-200 to-yellow-400' },
+    { id: 'seed-new-13', name: 'Hyacinth White', price: '₹120', emoji: '🪻', color: 'from-gray-100 to-white' },
+    { id: 'seed-new-14', name: '5 Mix Rose Seeds', price: '₹3,500', emoji: '🌹', color: 'from-red-200 to-pink-400' },
+    { id: 'seed-new-15', name: '10 Mix Rose Flower Seeds', price: '₹5,000', emoji: '💐', color: 'from-pink-300 to-purple-500' },
+    { id: 'seed-new-16', name: 'Ranunculus Pink', price: '₹899', emoji: '🏵️', color: 'from-pink-200 to-pink-400' },
+    { id: 'seed-new-17', name: 'Ranunculus White', price: '₹899', emoji: '🏵️', color: 'from-gray-100 to-white' },
+    { id: 'seed-new-18', name: 'Ranunculus Red', price: '₹899', emoji: '🏵️', color: 'from-red-400 to-red-600' },
+    { id: 'seed-new-19', name: 'Freesia Red', price: '₹60', emoji: '⚘', color: 'from-red-300 to-red-500' },
+    { id: 'seed-new-20', name: 'Hyacinth White (Premium)', price: '₹125', emoji: '🪻', color: 'from-gray-100 to-white' },
+    { id: 'seed-new-21', name: 'Hyacinth Yellow (Premium)', price: '₹120', emoji: '🪻', color: 'from-yellow-200 to-yellow-400' },
+    { id: 'seed-new-22', name: 'Lycoris Seeds', price: '₹80', emoji: '🪴', color: 'from-red-400 to-orange-500' },
+    { id: 'seed-new-23', name: 'Calla Lily Pink', price: '₹150', emoji: '🌷', color: 'from-pink-200 to-pink-400' },
+    { id: 'seed-new-24', name: 'Tuberose Seeds', price: '₹45', emoji: '🌾', color: 'from-green-100 to-white' },
+    { id: 'seed-new-25', name: 'Calla Lily Yellow', price: '₹150', emoji: '🌷', color: 'from-yellow-200 to-yellow-400' },
+    { id: 'seed-new-26', name: 'Hyacinth Pink', price: '₹135', emoji: '🪻', color: 'from-pink-200 to-purple-300' },
+    { id: 'seed-new-27', name: 'Achimenes Red', price: '₹40', emoji: '🌺', color: 'from-red-400 to-red-600' },
+    { id: 'seed-new-28', name: 'Achimenes Pink', price: '₹40', emoji: '🌺', color: 'from-pink-200 to-pink-400' },
+    { id: 'seed-new-29', name: 'Achimenes White', price: '₹35', emoji: '🌺', color: 'from-gray-100 to-white' },
+    { id: 'seed-new-30', name: 'Rain Lily Mix', price: '₹40', emoji: '🪷', color: 'from-pink-200 to-purple-400' },
+    { id: 'seed-new-31', name: 'Nerine Lily Mix', price: '₹50', emoji: '⚜️', color: 'from-pink-300 to-red-400' },
   ];
 
   const fertilizers = [
-    { id: 'fert-1', name: 'Compost Fertilizer', description: 'Rich organic compost for all plants', price: '$12.99', size: '5 lbs', icon: '🌱' },
-    { id: 'fert-2', name: 'Liquid Plant Food', description: 'Fast-acting liquid fertilizer', price: '$15.99', size: '1 Liter', icon: '💧' },
-    { id: 'fert-3', name: 'Bone Meal', description: 'High phosphorus for root development', price: '$18.99', size: '4 lbs', icon: '🦴' },
+    { id: 'fert-new-1', name: 'Organic Fertilizer Green', description: 'Premium organic fertilizer', price: '₹1,499', size: '1 kg', icon: '🍃' },
+    { id: 'fert-new-2', name: 'Organic Homemade Upplas', description: 'Traditional organic fertilizer', price: '₹899', size: 'Pack', icon: '🍘' },
+    { id: 'fert-new-3', name: 'Top Natural Fertilizer', description: 'High quality natural fertilizer', price: '₹2,500', size: '5 kg', icon: '🌱' },
   ];
 
   const addToCart = (product) => {
     const isExisting = cartItems.find((item) => item.id === product.id);
-    
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
         return [...prevItems, { ...product, quantity: 1 }];
       }
     });
-    
-    // Show toast notification with product details
     setToastProduct(product);
     setToastMessage(isExisting ? `${product.name} quantity updated!` : `${product.name} added to cart!`);
     setShowToast(true);
-    
-    // Animate cart icon
     setCartIconBounce(true);
     setTimeout(() => setCartIconBounce(false), 600);
-    
-    // Auto-hide toast after 4 seconds
     setTimeout(() => {
       setShowToast(false);
       setToastProduct(null);
@@ -152,7 +164,6 @@ function App() {
               <button className="hidden sm:block btn-3d bg-gradient-to-r from-primary-600 to-emerald-600 text-white px-4 md:px-8 py-2 md:py-3 rounded-full text-sm md:text-lg font-semibold hover:from-primary-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl glow">
                 Get Started
               </button>
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden btn-3d bg-gradient-to-r from-primary-600 to-emerald-600 text-white p-2 rounded-full hover:from-primary-700 hover:to-emerald-700 transition-all duration-300 shadow-lg"
@@ -162,7 +173,7 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="px-4 pb-4 space-y-2 bg-white/95 backdrop-blur-md border-t border-gray-200">
@@ -200,7 +211,7 @@ function App() {
             </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
-            Discover a wide variety of flower seeds and organic fertilizers. 
+            Discover a wide variety of flower seeds and organic fertilizers.
             Buy quality seeds or sell your own harvest. Your garden paradise starts here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
@@ -295,51 +306,53 @@ function App() {
                 className="card-3d group bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:from-emerald-100 hover:via-green-100 hover:to-teal-100 transition-all duration-500 border border-emerald-200/50 shadow-xl hover:shadow-2xl"
               >
                 <div className="text-5xl sm:text-6xl mb-4 sm:mb-6 float" style={{ animationDelay: `${index * 0.2}s` }}>{fertilizer.icon}</div>
-                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-primary-600 transition-colors">{fertilizer.name}</h4>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">{fertilizer.description}</p>
-                <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">{fertilizer.name}</h4>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">{fertilizer.description}</p>
+                <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-primary-600 font-bold text-xl sm:text-2xl">{fertilizer.price}</p>
-                    <p className="text-xs sm:text-sm text-gray-500 mt-1">{fertilizer.size}</p>
+                    <span className="text-xs sm:text-sm text-gray-500 block mb-1">Size: {fertilizer.size}</span>
+                    <span className="text-lg sm:text-xl font-bold text-primary-600">{fertilizer.price}</span>
                   </div>
+                  <button
+                    onClick={() => addToCart(fertilizer)}
+                    className="bg-white text-primary-600 p-2 sm:p-3 rounded-full hover:bg-primary-50 transition-all duration-300 shadow-md hover:shadow-lg border border-primary-100"
+                  >
+                    <span className="text-xl">➕</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => addToCart(fertilizer)}
-                  className="w-full bg-gradient-to-r from-primary-600 to-emerald-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base hover:from-primary-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl glow shine"
-                >
-                  Buy Now
-                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sell Section */}
-      <section id="sell" className="relative z-10 py-12 sm:py-16 md:py-24 bg-gradient-to-r from-primary-50 via-emerald-50 to-teal-50">
+      {/* Sell Your Seeds Section */}
+      <section id="sell" className="relative z-10 py-12 sm:py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center scale-in">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 px-4">Sell Your Seeds</h3>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 md:mb-12 leading-relaxed px-4">
-              Have quality seeds to share? Join our marketplace and connect with fellow gardeners. 
-              List your seeds easily and start selling today.
-            </p>
-            <div className="glass bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl border border-white/50">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 md:mb-10">
-                {[
-                  { icon: '📝', title: 'List Your Seeds', desc: 'Create a listing in minutes' },
-                  { icon: '👥', title: 'Reach Buyers', desc: 'Connect with garden enthusiasts' },
-                  { icon: '💰', title: 'Earn Money', desc: 'Get paid for your quality seeds' },
-                ].map((step, index) => (
-                  <div key={index} className="text-center group">
-                    <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 float" style={{ animationDelay: `${index * 0.2}s` }}>{step.icon}</div>
-                    <h4 className="font-bold text-lg sm:text-xl mb-2 group-hover:text-primary-600 transition-colors">{step.title}</h4>
-                    <p className="text-sm sm:text-base text-gray-600">{step.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <button className="w-full sm:w-auto btn-3d bg-gradient-to-r from-primary-600 to-emerald-600 text-white px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full text-base sm:text-lg md:text-xl font-bold hover:from-primary-700 hover:to-emerald-700 transition-all duration-300 shadow-2xl hover:shadow-emerald-500/50 glow shine">
-                Start Selling Now
+          <div className="glass bg-gradient-to-br from-primary-50 via-emerald-50 to-teal-50 rounded-3xl sm:rounded-[3rem] p-8 sm:p-12 md:p-16 border border-primary-200/50 shadow-2xl">
+            <div className="text-center mb-8 sm:mb-12">
+              <div className="text-5xl sm:text-6xl md:text-7xl mb-4 sm:mb-6 float">🌾</div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">Sell Your Seeds</h3>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                Have quality seeds to share? Join our marketplace and connect with gardeners worldwide!
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              {[
+                { icon: '📸', title: 'List Your Products', desc: 'Upload photos and details of your seeds' },
+                { icon: '💰', title: 'Set Your Price', desc: 'You control the pricing and availability' },
+                { icon: '🚀', title: 'Start Selling', desc: 'Reach thousands of potential buyers' },
+              ].map((step, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 bounce" style={{ animationDelay: `${index * 0.2}s` }}>{step.icon}</div>
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{step.title}</h4>
+                  <p className="text-sm sm:text-base text-gray-600">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <button className="btn-3d bg-gradient-to-r from-primary-600 to-emerald-600 text-white px-8 sm:px-12 md:px-16 py-3 sm:py-4 md:py-5 rounded-full text-base sm:text-lg md:text-xl font-bold hover:from-primary-700 hover:to-emerald-700 transition-all duration-300 shadow-2xl hover:shadow-emerald-500/50 glow shine">
+                Start Selling Today
               </button>
             </div>
           </div>
@@ -347,82 +360,153 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative z-10 py-12 sm:py-16 md:py-24">
+      <section id="about" className="relative z-10 bg-white/60 backdrop-blur-sm py-12 sm:py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center scale-in">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 sm:mb-8 px-4">About Seeds Gallery</h3>
-            <div className="glass bg-white/60 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl border border-white/50">
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                Seeds Gallery is your trusted partner in gardening. We specialize in providing 
-                high-quality flower seeds and organic fertilizers to help you create beautiful gardens. 
-                Our platform also connects seed sellers with buyers, creating a vibrant community 
-                of gardening enthusiasts.
-              </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-                Whether you're a beginner gardener or a seasoned expert, we have everything you need 
-                to grow and flourish. Join thousands of happy customers who trust Seeds Gallery for 
-                their gardening needs.
-              </p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 scale-in">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6 px-4">About Seeds Gallery</h3>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              Your trusted partner in creating beautiful gardens and sustainable agriculture
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="card-3d bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl">
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 float">🌍</div>
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Our Mission</h4>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  To make quality seeds accessible to everyone and promote sustainable gardening practices worldwide.
+                </p>
+              </div>
+              <div className="card-3d bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl">
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 float">✨</div>
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Our Vision</h4>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  A world where every garden flourishes with diverse, healthy plants grown from premium seeds.
+                </p>
+              </div>
+            </div>
+            <div className="card-3d bg-gradient-to-br from-green-50 to-emerald-50 p-8 sm:p-12 rounded-2xl sm:rounded-3xl shadow-2xl">
+              <div className="text-6xl sm:text-7xl mb-4 sm:mb-6 text-center float">🌱</div>
+              <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">Why Choose Us?</h4>
+              <ul className="space-y-3 sm:space-y-4">
+                {[
+                  'Premium quality seeds from trusted suppliers',
+                  'Organic and eco-friendly fertilizers',
+                  'Expert gardening advice and support',
+                  'Fast and secure delivery',
+                  'Satisfaction guaranteed',
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-primary-600 text-xl sm:text-2xl flex-shrink-0">✓</span>
+                    <span className="text-sm sm:text-base text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 sm:py-12 md:py-16">
+      <footer className="relative z-10 bg-gray-900 text-gray-300 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
-            <div>
-              <div className="flex items-center space-x-2 mb-3 sm:mb-4">
-                <div className="text-2xl sm:text-3xl float">🌱</div>
-                <h4 className="text-xl sm:text-2xl font-bold">Seeds Gallery</h4>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12 mb-8">
+            {/* Brand Section */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="text-3xl">🌱</div>
+                <span className="text-xl font-bold text-white">Seeds Gallery</span>
               </div>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed">
                 Your one-stop shop for premium seeds and fertilizers
               </p>
             </div>
+
+            {/* Quick Links */}
             <div>
-              <h5 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Quick Links</h5>
-              <ul className="space-y-2 sm:space-y-3 text-gray-400">
-                {['Home', 'Seeds', 'Fertilizers', 'Sell'].map((link) => (
-                  <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className="text-sm sm:text-base hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                      {link}
+              <h4 className="text-white font-bold text-lg mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                {[
+                  { name: 'Home', href: '#home' },
+                  { name: 'Seeds', href: '#seeds' },
+                  { name: 'Fertilizers', href: '#fertilizers' },
+                  { name: 'Sell', href: '#sell' },
+                ].map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-primary-400 transition-colors duration-200 text-sm"
+                    >
+                      {link.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/* Support */}
             <div>
-              <h5 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Support</h5>
-              <ul className="space-y-2 sm:space-y-3 text-gray-400">
-                {['Contact Us', 'FAQ', 'Shipping Info', 'Returns'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm sm:text-base hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                      {item}
+              <h4 className="text-white font-bold text-lg mb-4">Support</h4>
+              <ul className="space-y-2">
+                {[
+                  { name: 'Contact Us', href: '#' },
+                  { name: 'FAQ', href: '#' },
+                  { name: 'Shipping Info', href: '#' },
+                  { name: 'Returns', href: '#' },
+                ].map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-primary-400 transition-colors duration-200 text-sm"
+                    >
+                      {link.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/* Connect */}
             <div>
-              <h5 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Connect</h5>
-              <ul className="space-y-2 sm:space-y-3 text-gray-400">
-                {['Facebook', 'Instagram', 'Twitter', 'Email'].map((social) => (
-                  <li key={social}>
-                    <a href="#" className="text-sm sm:text-base hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">
-                      {social}
+              <h4 className="text-white font-bold text-lg mb-4">Connect</h4>
+              <ul className="space-y-2">
+                {[
+                  { name: 'Facebook', href: '#' },
+                  { name: 'Instagram', href: '#' },
+                  { name: 'Twitter', href: '#' },
+                  { name: 'Email', href: '#' },
+                ].map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-primary-400 transition-colors duration-200 text-sm"
+                    >
+                      {link.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-700 pt-6 sm:pt-8 text-center text-gray-400">
-            <p className="text-sm sm:text-base">&copy; 2024 Seeds Gallery. All rights reserved.</p>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-800 pt-8">
+            <div className="text-center text-sm text-gray-500">
+              © 2024 Seeds Gallery. All rights reserved.
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* Cart Sidebar */}
+      <Cart
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        updateQuantity={updateQuantity}
+        removeItem={removeItem}
+        clearCart={clearCart}
+      />
 
       {/* Toast Notification */}
       {showToast && toastProduct && (
@@ -457,14 +541,15 @@ function App() {
         </div>
       )}
 
-      {/* Cart Component */}
-      <Cart
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cartItems={cartItems}
-        onUpdateQuantity={updateQuantity}
-        onRemoveItem={removeItem}
-        onClearCart={clearCart}
+      {/* Custom Cursor */}
+      <div
+        className="fixed w-8 h-8 pointer-events-none z-50 mix-blend-multiply filter blur-[1px] transition-transform duration-100 hidden md:block"
+        style={{
+          left: mousePosition.x - 16,
+          top: mousePosition.y - 16,
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0) 70%)',
+          transform: 'scale(1.5)',
+        }}
       />
     </div>
   );

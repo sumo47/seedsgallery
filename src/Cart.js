@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onClearCart }) {
+function Cart({ isOpen, onClose, cartItems, updateQuantity, removeItem, clearCart }) {
   const totalPrice = cartItems.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace('$', ''));
+    const price = parseFloat(item.price.replace(/[₹,]/g, ''));
     return sum + (price * item.quantity);
   }, 0);
 
@@ -18,9 +18,8 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
 
       {/* Cart Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* Cart Header */}
@@ -32,7 +31,7 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
               </h2>
               <button
                 onClick={onClose}
-                className="text-white hover:text-white transition-all duration-200 text-4xl sm:text-2xl font-bold w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-red-500/80 bg-red-500/70 sm:bg-transparent sm:hover:bg-white/20 shadow-lg sm:shadow-none border-2 border-white/50 sm:border-0"
+                className="text-white hover:text-white transition-all duration-200 text-3xl sm:text-2xl font-bold w-10 h-10 flex items-center justify-center rounded-full bg-red-500 hover:bg-red-600 border-2 border-white shadow-lg"
                 aria-label="Close cart"
               >
                 ×
@@ -72,14 +71,14 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
                           <p className="text-primary-600 font-bold text-base sm:text-lg">{item.price}</p>
                           <div className="flex items-center gap-2">
                             <button
-                              onClick={() => onUpdateQuantity(index, item.quantity - 1)}
+                              onClick={() => updateQuantity(index, item.quantity - 1)}
                               className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-primary-600 text-primary-600 font-bold hover:bg-primary-600 hover:text-white transition-all duration-200 flex items-center justify-center text-sm sm:text-base"
                             >
                               −
                             </button>
                             <span className="w-8 sm:w-10 text-center font-semibold text-sm sm:text-base text-gray-900">{item.quantity}</span>
                             <button
-                              onClick={() => onUpdateQuantity(index, item.quantity + 1)}
+                              onClick={() => updateQuantity(index, item.quantity + 1)}
                               className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary-600 text-white font-bold hover:bg-primary-700 transition-all duration-200 flex items-center justify-center text-sm sm:text-base"
                             >
                               +
@@ -87,7 +86,7 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
                           </div>
                         </div>
                         <button
-                          onClick={() => onRemoveItem(index)}
+                          onClick={() => removeItem(index)}
                           className="mt-2 text-red-600 hover:text-red-700 text-xs sm:text-sm font-medium transition-colors"
                         >
                           Remove
@@ -106,7 +105,7 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
               <div className="flex justify-between items-center mb-3 sm:mb-4">
                 <span className="text-base sm:text-lg font-semibold text-gray-700">Total:</span>
                 <span className="text-xl sm:text-2xl font-bold text-gradient bg-clip-text bg-gradient-to-r from-primary-600 to-emerald-600">
-                  ${totalPrice.toFixed(2)}
+                  ₹{totalPrice.toLocaleString('en-IN')}
                 </span>
               </div>
               <div className="space-y-2 sm:space-y-3">
@@ -119,7 +118,7 @@ function Cart({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCl
                   Proceed to Checkout
                 </button>
                 <button
-                  onClick={onClearCart}
+                  onClick={clearCart}
                   className="w-full bg-gray-200 text-gray-700 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base hover:bg-gray-300 transition-all duration-300"
                 >
                   Clear Cart
