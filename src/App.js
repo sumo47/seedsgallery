@@ -32,7 +32,7 @@ function App() {
 
   const seeds = [
     { id: 'seed-new-2', name: 'Organic Rose Seeds', price: '₹999', emoji: '🌹', color: 'from-red-200 to-pink-400' },
-    { id: 'seed-new-3', name: 'Amul Butter (Sample)', price: '₹220', emoji: '🧈', color: 'from-yellow-100 to-yellow-300' },
+    
     { id: 'seed-new-4', name: 'Gladiolus Mix', price: '₹40', emoji: '💐', color: 'from-pink-200 to-purple-400' },
     { id: 'seed-new-5', name: 'Asiatic Lily Orange', price: '₹80', emoji: '🌺', color: 'from-orange-200 to-red-400' },
     { id: 'seed-new-6', name: 'Sunflower Seeds', price: '₹499', emoji: '🌻', color: 'from-yellow-200 to-orange-400' },
